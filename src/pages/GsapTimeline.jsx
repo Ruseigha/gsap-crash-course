@@ -1,5 +1,35 @@
+import { useGSAP } from "@gsap/react";
+import gsap from "gsap";
+
 const GsapTimeline = () => {
   // TODO: Implement the gsap timeline
+  const timeline = gsap.timeline({
+    repeat: -1,
+    repeatDelay: 1,
+    yoyo: true,
+  });
+
+  useGSAP(() => {
+    timeline.to("#yellow-box", {
+      x: 250,
+      rotation: 360,
+      duration: 1,
+      ease: "power1.inOut",
+      borderRadius: "50%",
+    })
+
+    timeline.to("#yellow-box", {
+      scale: 1.5,
+      duration: 1,
+      ease: "power1.inOut",
+    })
+
+    timeline.to("#yellow-box", {
+      scale: 1,
+      duration: 1,
+      ease: "power1.inOut",
+    })
+  },[])
 
   return (
     <main>
